@@ -10,6 +10,8 @@
 		F6ABEA0D28F6D2D700B66894 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */; };
 		F6ABEA0F28F6D38000B66894 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */; };
 		F6ABEA1128F6F62200B66894 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1028F6F62200B66894 /* WeatherModel.swift */; };
+		F6ABEA1528FDCF8300B66894 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */; };
+		F6ABEA1628FDCF8300B66894 /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */; };
 		F6BBB3CD28F6BE920061C7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3CC28F6BE920061C7D8 /* AppDelegate.swift */; };
 		F6BBB3CF28F6BE920061C7D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3CE28F6BE920061C7D8 /* SceneDelegate.swift */; };
 		F6BBB3D128F6BE920061C7D8 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3D028F6BE920061C7D8 /* WeatherViewController.swift */; };
@@ -42,6 +44,8 @@
 		F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		F6ABEA1028F6F62200B66894 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
 		F6BBB3C928F6BE920061C7D8 /* MobileWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBB3CC28F6BE920061C7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6BBB3CE28F6BE920061C7D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		F6ABEA1228FDCF2300B66894 /* WeatherCell */ = {
+			isa = PBXGroup;
+			children = (
+				F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */,
+				F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */,
+			);
+			path = WeatherCell;
+			sourceTree = "<group>";
+		};
 		F6BBB3C028F6BE910061C7D8 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +144,7 @@
 		F6BBB3CB28F6BE920061C7D8 /* MobileWeather */ = {
 			isa = PBXGroup;
 			children = (
+				F6ABEA1228FDCF2300B66894 /* WeatherCell */,
 				F6ABEA0928F6CA2800B66894 /* Model */,
 				F6ABEA0A28F6CA3200B66894 /* View */,
 				F6ABEA0B28F6CA3900B66894 /* Controller */,
@@ -264,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6ABEA1628FDCF8300B66894 /* WeatherTableViewCell.xib in Resources */,
 				F6BBB3D928F6BE960061C7D8 /* LaunchScreen.storyboard in Resources */,
 				F6BBB3D628F6BE960061C7D8 /* Assets.xcassets in Resources */,
 				F6BBB3D428F6BE920061C7D8 /* Main.storyboard in Resources */,
@@ -293,6 +308,7 @@
 			files = (
 				F6BBB3D128F6BE920061C7D8 /* WeatherViewController.swift in Sources */,
 				F6BBB3CD28F6BE920061C7D8 /* AppDelegate.swift in Sources */,
+				F6ABEA1528FDCF8300B66894 /* WeatherTableViewCell.swift in Sources */,
 				F6ABEA0F28F6D38000B66894 /* WeatherManager.swift in Sources */,
 				F6ABEA0D28F6D2D700B66894 /* WeatherData.swift in Sources */,
 				F6ABEA1128F6F62200B66894 /* WeatherModel.swift in Sources */,
