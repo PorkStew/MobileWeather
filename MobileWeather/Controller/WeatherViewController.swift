@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
@@ -18,31 +18,29 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var table: UITableView!
     
     var weatherManager = WeatherManager()
+    var dailyWeatherManager = DailyWeatherManager()
     var locationManager = CLLocationManager()
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Register weathertableview cell
-        table.register(WeatherTableViewCell.nib(), forCellReuseIdentifier: WeatherTableViewCell.identifier)
+        table.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "WeatherTableViewCell")
         table.delegate = self
         table.dataSource = self
+        //Froce uppercase text for min, current, max
         weatherDescription.text = weatherDescription.text?.uppercased()
+        //Register delegates
         weatherManager.delegate = self
+        dailyWeatherManager.delegate = self
         locationManager.delegate = self
+        //CLLocationManager
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-       // weatherManager.delegate = self
     }
 }
+
+
 //MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
     
@@ -56,6 +54,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
+            dailyWeatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
     }
     
@@ -78,5 +77,39 @@ extension WeatherViewController: WeatherManagerDelegate {
     }
     func didFailWithError(error: Error) {
         print(error)
+    }
+}
+
+//MARK: - DailyWeatherManagerDelegate
+extension WeatherViewController: DailyWeatherManagerDelegate {
+    func didUpdateWeather(_ DailyWeatherManager: DailyWeatherManager, weather: DailyWeatherModel) {
+        DispatchQueue.main.async {
+            //print(weather.temperatureString)
+            self.temperatureLabel.text = String(weather.days)
+            print(weather.days)
+            print("fiofjegojwegjeifneiljgnerwg")
+            
+        }
+    }
+}
+
+//MARK: - UITableViewDelegate
+//extension WeatherViewController: UITableViewDelegate {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+//}
+
+//MARK: - UITableViewDataSource
+extension WeatherViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
+        cell.temperatureLabel.text = "2"
+        return cell
     }
 }
