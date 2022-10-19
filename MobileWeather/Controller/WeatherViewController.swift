@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 class WeatherViewController: UIViewController, UITableViewDelegate {
-    
+    //IBOutlet Declarations
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var minTemp: UILabel!
@@ -20,11 +20,12 @@ class WeatherViewController: UIViewController, UITableViewDelegate {
     var weatherManager = WeatherManager()
     var dailyWeatherManager = DailyWeatherManager()
     var locationManager = CLLocationManager()
-    
+    //Variable Declarations
     var fore: [Int] = []
     var foreTemp: [Double] = []
     var foreSymbol: [Int] = []
-    var weekName: [String] = []
+    var weekname: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Register weathertableview cell
@@ -97,23 +98,15 @@ extension WeatherViewController: DailyWeatherManagerDelegate {
             self.foreSymbol = weather.conditionId
             self.foreTemp = weather.temp
             self.table.reloadData()
-            self.weekName = weather.weekName
-            print(self.weekName)
             print("reloading table for you")
             //self.forecast.append(weather.days)
+            self.weekname = weather.weekName
             print("fiofjegojwegjeifneiljgnerwg")
         }
     }
     
 }
 
-//MARK: - UITableViewDelegate
-//extension WeatherViewController: UITableViewDelegate {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-//}
 
 //MARK: - UITableViewDataSource
 extension WeatherViewController: UITableViewDataSource {
@@ -123,33 +116,29 @@ extension WeatherViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
-        if fore.count != 0 {
-//            let dateFormatter = DateFormatter()
-//            var weekday: String = ""
-//            dateFormatter.dateFormat = "cccc"
-//            weekday = dateFormatter.string(from: Date(fore[indexPath.row]))
-//            cell.dayLabel.text = weekday
-            cell.dayLabel.text = weekName[indexPath.row]
-            print(foreSymbol[indexPath.row])
-            switch foreSymbol[indexPath.row] {
-            case 200...232:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.bolt")
-            case 300...321:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.drizzle")
-            case 500...531:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.rain")
-            case 600...622:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.snow")
-            case 701...781:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.fog")
-            case 800:
-                cell.weatherSymbol.image = UIImage(systemName: "sun.max")
-            case 801...804:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud.bolt")
-            default:
-                cell.weatherSymbol.image = UIImage(systemName: "cloud")
+        DispatchQueue.main.async {
+            if self.fore.count != 0 {
+                cell.dayLabel.text = String(self.weekname[indexPath.row])
+                switch self.foreSymbol[indexPath.row] {
+                case 200...232:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.bolt")
+                case 300...321:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.drizzle")
+                case 500...531:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.rain")
+                case 600...622:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.snow")
+                case 701...781:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.fog")
+                case 800:
+                    cell.weatherSymbol.image = UIImage(systemName: "sun.max")
+                case 801...804:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud.bolt")
+                default:
+                    cell.weatherSymbol.image = UIImage(systemName: "cloud")
+                }
+                cell.temperatureLabel.text = String(self.foreTemp[indexPath.row])
             }
-            cell.temperatureLabel.text = String(foreTemp[indexPath.row])
         }
         return cell
     }

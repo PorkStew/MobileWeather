@@ -18,7 +18,6 @@ struct DailyWeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/forecast?appid=f468ed161a9fbfaa134527067d0b0c20&units=metric"
     
     var delegate: DailyWeatherManagerDelegate?
-    var weekName = [String]()
     let dateFormatter = DateFormatter()
     
     func fetchWeather(cityName: String) {
@@ -55,8 +54,8 @@ struct DailyWeatherManager {
             let decodedData = try decoder.decode(DailyWeatherData.self, from: dailyWeatherData)
             
             //let cnt = decodedData.list[0].dt
-            let date = decodedData.list[0].dt_txt
-            let startDate = dateConverter(date: date)
+            let dates = decodedData.list[0].dt_txt
+            let startDate = dateConverter(date: dates)
             
             var count = 0
             //let d = startDate + 6
@@ -64,11 +63,13 @@ struct DailyWeatherManager {
             var forecast = [Int]()
             var temperature = [Double]()
             var forecastIcon = [Int]()
+            var weekName = [String]()
             
             while count < decodedData.list.count-1 {
                 count += 1
                 let date = decodedData.list[count].dt_txt
                 let nextData = dateConverter(date: date)
+                
                 print("start: \(startDate) next: \(nextData)")
                 if startDate != nextData && forecast.contains(nextData) == false{
                     forecast.append(nextData)
@@ -78,15 +79,13 @@ struct DailyWeatherManager {
                     temperature.append(decodedData.list[count].main.temp)
                     forecastIcon.append(decodedData.list[count].weather[0].id)
                     
-                    
-                    
-                    
-                    
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let da = dateFormatter.date(from:date)!
+                    var weekday: String = ""
                     dateFormatter.dateFormat = "cccc"
-                    let dates = dateFormatter.date(from: decodedData.list[count].dt_txt)
-//                    weekday = dateFormatter.string(from: dates!)
-                    print("fUCJJJJJJJJJJ : : \(String(describing: dates))")
-                    
+                    weekday = dateFormatter.string(from: da)
+                    weekName.append(weekday)
                     
                 } else {
                     print("sdsdsd")
