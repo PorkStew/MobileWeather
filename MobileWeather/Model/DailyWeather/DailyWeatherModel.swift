@@ -13,6 +13,8 @@ struct DailyWeatherModel {
     //let temp: Double
     let days: [Int]
     let temp: [Double]
+    let conditionId: [Int]
+    let weekName: [String]
 //    var temperatureString: String {
 //        return String(format: "%.1f", temp)
 //    }

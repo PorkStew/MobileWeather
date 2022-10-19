@@ -17,8 +17,12 @@ struct List: Codable {
     let dt_txt: String
     //let main: Mains
     let main: main
+    let weather: [weather]
 }
 struct main: Codable {
     //let temp: Double
     let temp: Double
+}
+struct weather: Codable {
+    let id: Int
 }

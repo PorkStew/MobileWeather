@@ -18,6 +18,8 @@ struct DailyWeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/forecast?appid=f468ed161a9fbfaa134527067d0b0c20&units=metric"
     
     var delegate: DailyWeatherManagerDelegate?
+    var weekName = [String]()
+    let dateFormatter = DateFormatter()
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -40,7 +42,7 @@ struct DailyWeatherManager {
                 
                 if let safeData = data {
                     if let weather = self.parseJSON(dailyWeatherData: safeData) {
-                        //self.delegate?.didUpdateWeather(self, weather: weather)
+                        self.delegate?.didUpdateWeather(self, weather: weather)
                     }
                 }
             }
@@ -50,23 +52,18 @@ struct DailyWeatherManager {
     func parseJSON(dailyWeatherData: Data) -> DailyWeatherModel? {
         let decoder = JSONDecoder()
         do {
-            //let decodedData = try decoder.decode(WeatherData.self, from: DailyWeatherData)
             let decodedData = try decoder.decode(DailyWeatherData.self, from: dailyWeatherData)
             
-            let cnt = decodedData.list[0].dt
-            print(cnt)
-            
-            
-            
+            //let cnt = decodedData.list[0].dt
             let date = decodedData.list[0].dt_txt
-            
             let startDate = dateConverter(date: date)
             
             var count = 0
-            let d = startDate + 6
+            //let d = startDate + 6
             
             var forecast = [Int]()
             var temperature = [Double]()
+            var forecastIcon = [Int]()
             
             while count < decodedData.list.count-1 {
                 count += 1
@@ -75,7 +72,22 @@ struct DailyWeatherManager {
                 print("start: \(startDate) next: \(nextData)")
                 if startDate != nextData && forecast.contains(nextData) == false{
                     forecast.append(nextData)
+                    print("what what what what what")
+                    print(decodedData.list[count].weather[0].id)
+                    print("asdasdasdjisifiewjfiewrngiorehgnieringoierohigeroihjgoijnerwijngi")
                     temperature.append(decodedData.list[count].main.temp)
+                    forecastIcon.append(decodedData.list[count].weather[0].id)
+                    
+                    
+                    
+                    
+                    
+                    dateFormatter.dateFormat = "cccc"
+                    let dates = dateFormatter.date(from: decodedData.list[count].dt_txt)
+//                    weekday = dateFormatter.string(from: dates!)
+                    print("fUCJJJJJJJJJJ : : \(String(describing: dates))")
+                    
+                    
                 } else {
                     print("sdsdsd")
                 }
@@ -83,31 +95,10 @@ struct DailyWeatherManager {
             }
             print(forecast)
             print(temperature)
-//                print("fffffff \(startDate)")
-//                let date = decodedData.list[count].dt_txt
-//                print(date)
-//                let NextDate = dateConverter(date: date)
-//                if NextDate != startDate {
-//                    print(count)
-//                } else {
-//                    count += 1
-//                }
-//            }
-            
-            
-            //let temperature = decodedData.main.temp
-            //let temperature = decodedData.list.main.temp
-//            let id = decodedData.weather[0].id
-//            let temp = decodedData.main.temp
-//            let name = decodedData.name
-//            let minTemp = decodedData.main.temp_min
-//            let maxTemp = decodedData.main.temp_max
-//            let weatherDescription = decodedData.weather[0].description
-//
-            //let weather = DailyWeatherModel(temp: temperature)
-            //print("ffffffffff")
-            let weather = DailyWeatherModel(days: forecast, temp: temperature)
-            
+            print(forecastIcon)
+            print(weekName)
+            let weather = DailyWeatherModel(days: forecast, temp: temperature, conditionId: forecastIcon, weekName: weekName)
+            print("returning weather")
             return weather
             
             
@@ -117,7 +108,7 @@ struct DailyWeatherManager {
         }
     }
     func dateConverter(date: String) -> Int{
-          let dateFormatter = DateFormatter()
+          
           dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
           dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.date(from:date)!
