@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6926061290146C2000C5C88 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6926060290146C2000C5C88 /* Constants.swift */; };
 		F6ABEA0D28F6D2D700B66894 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */; };
 		F6ABEA0F28F6D38000B66894 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */; };
 		F6ABEA1128F6F62200B66894 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1028F6F62200B66894 /* WeatherModel.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F6926060290146C2000C5C88 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		F6ABEA1028F6F62200B66894 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		F6BBB3CB28F6BE920061C7D8 /* MobileWeather */ = {
 			isa = PBXGroup;
 			children = (
+				F6926060290146C2000C5C88 /* Constants.swift */,
 				F6ABEA1228FDCF2300B66894 /* WeatherCell */,
 				F6ABEA0928F6CA2800B66894 /* Model */,
 				F6ABEA0A28F6CA3200B66894 /* View */,
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6BBB3D128F6BE920061C7D8 /* WeatherViewController.swift in Sources */,
+				F6926061290146C2000C5C88 /* Constants.swift in Sources */,
 				F6BBB3CD28F6BE920061C7D8 /* AppDelegate.swift in Sources */,
 				F6ABEA1F28FEA33600B66894 /* DailyWeatherModel.swift in Sources */,
 				F6ABEA1D28FEA16300B66894 /* DailyWeatherManager.swift in Sources */,
@@ -520,11 +524,12 @@
 				DEVELOPMENT_TEAM = 6M4QR5BC2K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MobileWeather/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Access is required to get your current weather location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Access is required to get your current weather location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,11 +554,12 @@
 				DEVELOPMENT_TEAM = 6M4QR5BC2K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MobileWeather/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Access is required to get your current weather location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Access is required to get your current weather location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
