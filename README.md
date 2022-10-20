@@ -1,14 +1,17 @@
 # MobileWeather
-An app designed to calculator the tip amount for a bill. The user has the ability to enter the total bill amount, select a tip percentage and then choose how many people the bill will be split with. The total amount will be shown when tapping on calculate.
+An app designed to get the latest weather date and the forecasted weather for the next 5 days.
 
+### API's used
+- https://openweathermap.org/current
+- https://openweathermap.org/forecast5
 
 ### What was learnt
 - MVC Design Pattern
 - StoryBoards
 - UIKit
-- Creating and linking multiple View Controllers
 - Creating and linking IBOutlets and IBActions
 - Creating and mutating structs
+- Code coverage analysis
 
 ## Home
 
