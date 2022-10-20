@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6ABEA0D28F6D2D700B66894 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */; };
+		F6ABEA0F28F6D38000B66894 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */; };
+		F6ABEA1128F6F62200B66894 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1028F6F62200B66894 /* WeatherModel.swift */; };
+		F6ABEA1528FDCF8300B66894 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */; };
+		F6ABEA1628FDCF8300B66894 /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */; };
+		F6ABEA1D28FEA16300B66894 /* DailyWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1C28FEA16300B66894 /* DailyWeatherManager.swift */; };
+		F6ABEA1F28FEA33600B66894 /* DailyWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA1E28FEA33600B66894 /* DailyWeatherModel.swift */; };
+		F6ABEA2128FEA36B00B66894 /* DailyWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ABEA2028FEA36B00B66894 /* DailyWeatherData.swift */; };
 		F6BBB3CD28F6BE920061C7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3CC28F6BE920061C7D8 /* AppDelegate.swift */; };
 		F6BBB3CF28F6BE920061C7D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3CE28F6BE920061C7D8 /* SceneDelegate.swift */; };
-		F6BBB3D128F6BE920061C7D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3D028F6BE920061C7D8 /* ViewController.swift */; };
+		F6BBB3D128F6BE920061C7D8 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BBB3D028F6BE920061C7D8 /* WeatherViewController.swift */; };
 		F6BBB3D428F6BE920061C7D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBB3D228F6BE920061C7D8 /* Main.storyboard */; };
 		F6BBB3D628F6BE960061C7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BBB3D528F6BE960061C7D8 /* Assets.xcassets */; };
 		F6BBB3D928F6BE960061C7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BBB3D728F6BE960061C7D8 /* LaunchScreen.storyboard */; };
@@ -36,10 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		F6ABEA1028F6F62200B66894 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
+		F6ABEA1C28FEA16300B66894 /* DailyWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherManager.swift; sourceTree = "<group>"; };
+		F6ABEA1E28FEA33600B66894 /* DailyWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherModel.swift; sourceTree = "<group>"; };
+		F6ABEA2028FEA36B00B66894 /* DailyWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherData.swift; sourceTree = "<group>"; };
 		F6BBB3C928F6BE920061C7D8 /* MobileWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BBB3CC28F6BE920061C7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6BBB3CE28F6BE920061C7D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F6BBB3D028F6BE920061C7D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6BBB3D028F6BE920061C7D8 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F6BBB3D328F6BE920061C7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6BBB3D528F6BE960061C7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6BBB3D828F6BE960061C7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +92,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F692605F29010F19000C5C88 /* CurrentWeather */ = {
+			isa = PBXGroup;
+			children = (
+				F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */,
+				F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */,
+				F6ABEA1028F6F62200B66894 /* WeatherModel.swift */,
+			);
+			path = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		F6ABEA0928F6CA2800B66894 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F692605F29010F19000C5C88 /* CurrentWeather */,
+				F6ABEA1728FEA0A700B66894 /* DailyWeather */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6ABEA0A28F6CA3200B66894 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBB3D228F6BE920061C7D8 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6ABEA0B28F6CA3900B66894 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6BBB3D028F6BE920061C7D8 /* WeatherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F6ABEA1228FDCF2300B66894 /* WeatherCell */ = {
+			isa = PBXGroup;
+			children = (
+				F6ABEA1328FDCF8300B66894 /* WeatherTableViewCell.swift */,
+				F6ABEA1428FDCF8300B66894 /* WeatherTableViewCell.xib */,
+			);
+			path = WeatherCell;
+			sourceTree = "<group>";
+		};
+		F6ABEA1728FEA0A700B66894 /* DailyWeather */ = {
+			isa = PBXGroup;
+			children = (
+				F6ABEA1C28FEA16300B66894 /* DailyWeatherManager.swift */,
+				F6ABEA1E28FEA33600B66894 /* DailyWeatherModel.swift */,
+				F6ABEA2028FEA36B00B66894 /* DailyWeatherData.swift */,
+			);
+			path = DailyWeather;
+			sourceTree = "<group>";
+		};
 		F6BBB3C028F6BE910061C7D8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +169,12 @@
 		F6BBB3CB28F6BE920061C7D8 /* MobileWeather */ = {
 			isa = PBXGroup;
 			children = (
+				F6ABEA1228FDCF2300B66894 /* WeatherCell */,
+				F6ABEA0928F6CA2800B66894 /* Model */,
+				F6ABEA0A28F6CA3200B66894 /* View */,
+				F6ABEA0B28F6CA3900B66894 /* Controller */,
 				F6BBB3CC28F6BE920061C7D8 /* AppDelegate.swift */,
 				F6BBB3CE28F6BE920061C7D8 /* SceneDelegate.swift */,
-				F6BBB3D028F6BE920061C7D8 /* ViewController.swift */,
-				F6BBB3D228F6BE920061C7D8 /* Main.storyboard */,
 				F6BBB3D528F6BE960061C7D8 /* Assets.xcassets */,
 				F6BBB3D728F6BE960061C7D8 /* LaunchScreen.storyboard */,
 				F6BBB3DA28F6BE960061C7D8 /* Info.plist */,
@@ -231,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6ABEA1628FDCF8300B66894 /* WeatherTableViewCell.xib in Resources */,
 				F6BBB3D928F6BE960061C7D8 /* LaunchScreen.storyboard in Resources */,
 				F6BBB3D628F6BE960061C7D8 /* Assets.xcassets in Resources */,
 				F6BBB3D428F6BE920061C7D8 /* Main.storyboard in Resources */,
@@ -258,8 +331,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6BBB3D128F6BE920061C7D8 /* ViewController.swift in Sources */,
+				F6BBB3D128F6BE920061C7D8 /* WeatherViewController.swift in Sources */,
 				F6BBB3CD28F6BE920061C7D8 /* AppDelegate.swift in Sources */,
+				F6ABEA1F28FEA33600B66894 /* DailyWeatherModel.swift in Sources */,
+				F6ABEA1D28FEA16300B66894 /* DailyWeatherManager.swift in Sources */,
+				F6ABEA2128FEA36B00B66894 /* DailyWeatherData.swift in Sources */,
+				F6ABEA1528FDCF8300B66894 /* WeatherTableViewCell.swift in Sources */,
+				F6ABEA0F28F6D38000B66894 /* WeatherManager.swift in Sources */,
+				F6ABEA0D28F6D2D700B66894 /* WeatherData.swift in Sources */,
+				F6ABEA1128F6F62200B66894 /* WeatherModel.swift in Sources */,
 				F6BBB3CF28F6BE920061C7D8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +525,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +554,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
