@@ -21,7 +21,6 @@ class WeatherViewController: UIViewController, UITableViewDelegate {
     var dailyWeatherManager = DailyWeatherManager()
     var locationManager = CLLocationManager()
     //Variable Declarations
-    var fore: [Int] = []
     var foreTemp: [Double] = []
     var foreSymbol: [Int] = []
     var weekname: [String] = []
@@ -32,7 +31,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate {
         table.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "WeatherTableViewCell")
         table.delegate = self
         table.dataSource = self
-        
+        table.rowHeight = 50
         //Froce uppercase text for min, current, max
         weatherDescription.text = weatherDescription.text?.uppercased()
         //Register delegates
@@ -73,13 +72,11 @@ extension WeatherViewController: CLLocationManagerDelegate {
 extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
-            print("Inside WeatherManagerDelegate")
             self.temperatureLabel.text = weather.temperatureString + "°"
             self.weatherDescription.text = weather.weatherDescription
             self.minTemp.text = weather.temperatureMinString
             self.currentTemp.text = weather.temperatureString
             self.maxTemp.text = weather.temperatureMaxString
-            print(weather.weatherDescription)
         }
     }
     func didFailWithError(error: Error) {
@@ -89,19 +86,12 @@ extension WeatherViewController: WeatherManagerDelegate {
 
 //MARK: - DailyWeatherManagerDelegate
 extension WeatherViewController: DailyWeatherManagerDelegate {
-    func didUpdateWeather(_ dailyWeatherManager: DailyWeatherManager, weather: DailyWeatherModel) {
+    func didUpdateWeather(_ dailyWeatherManager: DailyWeatherManager, dailyWeather: DailyWeatherModel) {
         DispatchQueue.main.async {
-            
-            print("We are in didUpdateWeather")
-            self.fore = weather.days
-            print("WEAHTER ID: \(weather.conditionId)")
-            self.foreSymbol = weather.conditionId
-            self.foreTemp = weather.temp
+            self.foreSymbol = dailyWeather.conditionId
+            self.foreTemp = dailyWeather.temp
+            self.weekname = dailyWeather.weekName
             self.table.reloadData()
-            print("reloading table for you")
-            //self.forecast.append(weather.days)
-            self.weekname = weather.weekName
-            print("fiofjegojwegjeifneiljgnerwg")
         }
     }
     
@@ -110,6 +100,7 @@ extension WeatherViewController: DailyWeatherManagerDelegate {
 
 //MARK: - UITableViewDataSource
 extension WeatherViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -117,8 +108,9 @@ extension WeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
         DispatchQueue.main.async {
-            if self.fore.count != 0 {
+            if self.weekname.count != 0 {
                 cell.dayLabel.text = String(self.weekname[indexPath.row])
+                //Based on the weather number, show weather icon
                 switch self.foreSymbol[indexPath.row] {
                 case 200...232:
                     cell.weatherSymbol.image = UIImage(systemName: "cloud.bolt")

@@ -8,7 +8,7 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
-
+    //IBOutlet Declaration
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var weatherSymbol: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -20,12 +20,6 @@ class WeatherTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-//    static let identifier = "WeatherTableViewCell"
-//    
-//    static func nib() -> UINib {
-//        return UINib(nibName: "WeatherTableViewCell", bundle: nil)
-//    }
 }

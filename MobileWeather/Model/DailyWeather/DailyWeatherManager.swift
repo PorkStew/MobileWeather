@@ -9,8 +9,9 @@
 import Foundation
 import CoreLocation
 
+//Weather Delegate
 protocol DailyWeatherManagerDelegate {
-    func didUpdateWeather(_ DailyWeatherManager: DailyWeatherManager, weather: DailyWeatherModel)
+    func didUpdateWeather(_ DailyWeatherManager: DailyWeatherManager, dailyWeather: DailyWeatherModel)
     func didFailWithError(error: Error)
 }
 
@@ -41,7 +42,7 @@ struct DailyWeatherManager {
                 
                 if let safeData = data {
                     if let weather = self.parseJSON(dailyWeatherData: safeData) {
-                        self.delegate?.didUpdateWeather(self, weather: weather)
+                        self.delegate?.didUpdateWeather(self, dailyWeather: weather)
                     }
                 }
             }
@@ -52,13 +53,10 @@ struct DailyWeatherManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(DailyWeatherData.self, from: dailyWeatherData)
-            
-            //let cnt = decodedData.list[0].dt
             let dates = decodedData.list[0].dt_txt
             let startDate = dateConverter(date: dates)
             
             var count = 0
-            //let d = startDate + 6
             
             var forecast = [Int]()
             var temperature = [Double]()
@@ -69,17 +67,11 @@ struct DailyWeatherManager {
                 count += 1
                 let date = decodedData.list[count].dt_txt
                 let nextData = dateConverter(date: date)
-                
-                print("start: \(startDate) next: \(nextData)")
                 if startDate != nextData && forecast.contains(nextData) == false{
                     forecast.append(nextData)
-                    print("what what what what what")
-                    print(decodedData.list[count].weather[0].id)
-                    print("asdasdasdjisifiewjfiewrngiorehgnieringoierohigeroihjgoijnerwijngi")
                     temperature.append(decodedData.list[count].main.temp)
                     forecastIcon.append(decodedData.list[count].weather[0].id)
-                    
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     let da = dateFormatter.date(from:date)!
                     var weekday: String = ""
@@ -88,32 +80,22 @@ struct DailyWeatherManager {
                     weekName.append(weekday)
                     
                 } else {
-                    print("sdsdsd")
+                    //when the date is the same
                 }
-                
             }
-            print(forecast)
-            print(temperature)
-            print(forecastIcon)
-            print(weekName)
+            //Add weather data to WeatherModel and return its data to be used in the WeatherViewController
             let weather = DailyWeatherModel(days: forecast, temp: temperature, conditionId: forecastIcon, weekName: weekName)
-            print("returning weather")
             return weather
-            
-            
         } catch {
             delegate?.didFailWithError(error: error)
             return nil
         }
     }
     func dateConverter(date: String) -> Int{
-          
-          dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-          dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.date(from:date)!
         let calanderDate = Calendar.current.dateComponents([.day], from: date).day!
-        
-        print(calanderDate)
         return calanderDate
     }
 }

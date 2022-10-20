@@ -9,12 +9,14 @@
 import Foundation
 import CoreLocation
 
+//Weather Delegate
 protocol WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
     func didFailWithError(error: Error)
 }
 
 struct WeatherManager {
+    
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=f468ed161a9fbfaa134527067d0b0c20&units=metric"
     
     var delegate: WeatherManagerDelegate?
@@ -57,9 +59,8 @@ struct WeatherManager {
             let minTemp = decodedData.main.temp_min
             let maxTemp = decodedData.main.temp_max
             let weatherDescription = decodedData.weather[0].description
-            
+            //Add weather data to WeatherModel and return its data to be used in the WeatherViewController
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tempMin: minTemp, tempMax: maxTemp ,weatherDescription: weatherDescription)
-            print(weather.temperatureString)
             return weather
             
             

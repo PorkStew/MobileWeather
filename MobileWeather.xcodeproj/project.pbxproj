@@ -92,13 +92,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F6ABEA0928F6CA2800B66894 /* Model */ = {
+		F692605F29010F19000C5C88 /* CurrentWeather */ = {
 			isa = PBXGroup;
 			children = (
-				F6ABEA1728FEA0A700B66894 /* DailyWeather */,
 				F6ABEA0C28F6D2D700B66894 /* WeatherData.swift */,
 				F6ABEA0E28F6D38000B66894 /* WeatherManager.swift */,
 				F6ABEA1028F6F62200B66894 /* WeatherModel.swift */,
+			);
+			path = CurrentWeather;
+			sourceTree = "<group>";
+		};
+		F6ABEA0928F6CA2800B66894 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F692605F29010F19000C5C88 /* CurrentWeather */,
+				F6ABEA1728FEA0A700B66894 /* DailyWeather */,
 			);
 			path = Model;
 			sourceTree = "<group>";

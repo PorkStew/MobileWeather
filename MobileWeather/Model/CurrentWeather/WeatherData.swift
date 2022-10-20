@@ -17,15 +17,10 @@ struct Main: Codable {
     let temp: Double
     let temp_min: Double
     let temp_max: Double
-    //let humidity: Int
 }
 
 struct Weather: Codable {
     let description: String
     let id: Int
 }
-
-//struct List: Codable {
-  //  let main: Main
-//}
 
